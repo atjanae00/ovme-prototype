@@ -1,16 +1,20 @@
-# React + Vite
+# OVME Prototype
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A pixel-accurate, clickable HTML/CSS/JS prototype of the OVME medical-aesthetics app, built directly from the Figma design file. No build step, no dependencies — two self-contained static HTML files.
 
-Currently, two official plugins are available:
+## Files
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **`index.html`** — the showcase/demo wrapper. Presents the prototype inside an iPhone device frame with a flow picker (Booking, Beauty journey, Profile, Home) for walking through different scenarios.
+- **`ovme_prototype.html`** — the actual interactive app prototype, loaded inside the showcase's iframe. Can also be opened directly and deep-linked via `?start=<screen>` query params (e.g. `?start=profile`, `?start=home-appointment`).
 
-## React Compiler
+## Local preview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+No build tools needed — just open `index.html` in a browser, or serve the folder with any static file server:
 
-## Expanding the Oxlint configuration
+```
+npx serve .
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Deploying
+
+This is a static site with no build command. On Netlify, `netlify.toml` is already configured with `publish = "."` and an empty build command, so it deploys as-is.
