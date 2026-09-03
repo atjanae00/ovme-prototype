@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ShowcaseLayout from './components/ShowcaseLayout'
 import ScreenIndex from './pages/ScreenIndex'
 
 import HomeAppointment from './screens/home/HomeAppointment'
@@ -28,6 +29,7 @@ import Messaging from './screens/profile/Messaging'
 export default function App() {
   return (
     <BrowserRouter>
+      <ShowcaseLayout>
       <Routes>
         <Route path="/" element={<ScreenIndex />} />
 
@@ -55,6 +57,7 @@ export default function App() {
         <Route path="/profile/message" element={<DirectMessage />} />
         <Route path="/profile/messaging" element={<Messaging />} />
       </Routes>
+      </ShowcaseLayout>
     </BrowserRouter>
   )
 }

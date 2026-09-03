@@ -17,7 +17,6 @@ import iconHome from '../../assets/profile/icon-home.svg'
 import iconCalendar from '../../assets/profile/icon-calendar.svg'
 import iconShoppingBag from '../../assets/profile/icon-shopping-bag.svg'
 import iconUserCircle from '../../assets/profile/icon-user-circle.svg'
-import iconSignal from '../../assets/profile/icon-signal-wifi-battery.svg'
 
 const ACCOUNT_ROWS = [
   'Notification preferences',
@@ -58,12 +57,7 @@ export default function Profile() {
   return (
     <div className="flex min-h-svh justify-center bg-gray-100">
       <div className="flex w-full max-w-[393px] flex-col bg-[#f9fafb]">
-        <div className="flex items-center justify-between px-4 pb-1 pt-3 text-black">
-          <span className="text-[15px] font-semibold">9:41</span>
-          <img src={iconSignal} alt="" className="h-[13px] w-[78px]" />
-        </div>
-
-        <div className="flex items-center gap-3 rounded-b-[10px] bg-[#4165ca] px-3 py-2">
+        <div className="flex items-center gap-3 rounded-b-[10px] bg-[#4165ca] px-3 pb-2 pt-12">
           <img src={avatarTia} alt="Tia Johnson" className="size-10 rounded-full object-cover" />
           <p className="text-xl text-white">Tia Johnson</p>
         </div>

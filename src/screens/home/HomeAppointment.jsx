@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import ScreenNav from '../../components/ScreenNav'
 
-import iconSignalWifiBattery from '../../assets/home/signal-wifi-battery.svg'
 import iconBell from '../../assets/home/bell-01.svg'
 import iconMail from '../../assets/home/mail-02.svg'
 import iconInfo from '../../assets/home/info-circle.svg'
@@ -65,15 +64,8 @@ export default function HomeAppointment() {
     <>
       <div className="flex min-h-svh justify-center bg-gray-200">
         <div className="relative flex w-full max-w-[393px] flex-col bg-[#fffaf5]">
-          {/* status bar */}
-          <div className="flex items-center justify-between px-4 pb-1 pt-3">
-            <span className="text-[15px] font-semibold text-black">9:41</span>
-            <div className="h-[28px] w-[90px] rounded-full bg-black" />
-            <img src={iconSignalWifiBattery} alt="" className="h-[13px] w-[78px]" />
-          </div>
-
           {/* header */}
-          <div className="flex flex-col gap-4 px-3.5 pb-5 pt-2">
+          <div className="flex flex-col gap-4 px-3.5 pb-5 pt-14">
             <div className="flex items-center justify-end gap-3">
               <button type="button" className="relative flex h-10 w-10 items-center justify-center rounded-full bg-[#3995fc]" aria-label="Notifications">
                 <img src={iconBell} alt="" className="h-5 w-5" />

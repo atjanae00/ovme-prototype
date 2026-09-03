@@ -3,7 +3,6 @@ import ScreenNav from '../../components/ScreenNav'
 
 import avatarThread from '../../assets/profile/avatar-thread.jpg'
 import iconXClose from '../../assets/profile/icon-x-close.svg'
-import iconSignal from '../../assets/profile/icon-signal-wifi-battery.svg'
 
 const THREADS = [
   {
@@ -26,12 +25,7 @@ export default function Messaging() {
   return (
     <div className="flex min-h-svh justify-center bg-gray-100">
       <div className="flex w-full max-w-[393px] flex-col overflow-hidden rounded-2xl bg-white">
-        <div className="flex items-center justify-between bg-[#f9fafb] px-4 pb-1 pt-3 text-black">
-          <span className="text-[15px] font-semibold">9:41</span>
-          <img src={iconSignal} alt="" className="h-[13px] w-[78px]" />
-        </div>
-
-        <div className="flex items-center justify-between border-b border-[#e5e7eb] bg-[#f9fafb] px-6 pb-2 pt-4">
+        <div className="flex items-center justify-between border-b border-[#e5e7eb] bg-[#f9fafb] px-6 pb-2 pt-14">
           <p className="text-xl font-medium text-black">Messages</p>
           <Link to="/profile" aria-label="Close messages">
             <img src={iconXClose} alt="" className="size-6" />
