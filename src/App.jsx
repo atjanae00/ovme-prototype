@@ -1,7 +1,6 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import ShowcaseLayout from './components/ShowcaseLayout'
-import ScreenIndex from './pages/ScreenIndex'
 
 import HomeAppointment from './screens/home/HomeAppointment'
 import HomeNoAppointment from './screens/home/HomeNoAppointment'
@@ -46,7 +45,7 @@ function AnimatedRoutes() {
         className="h-full"
       >
         <Routes location={location}>
-          <Route path="/" element={<ScreenIndex />} />
+          <Route path="/" element={<Navigate to="/book/locations" replace />} />
 
           <Route path="/home/appointment" element={<HomeAppointment />} />
           <Route path="/home/no-appointment" element={<HomeNoAppointment />} />
