@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import ScreenNav from '../../components/ScreenNav'
-import heroImage from '../../assets/book/hero-locations.jpg'
+import heroImage from '../../assets/book/hero-locations-new.jpg'
 import searchSmIcon from '../../assets/book/search-sm.svg'
 import chevronDownIcon from '../../assets/book/chevron-down.svg'
 
@@ -18,21 +18,21 @@ const STATES = [
 const NEARBY_LOCATIONS = [
   {
     id: 1,
-    name: 'Merrifiled',
-    distance: '18.48 miles away',
-    address: '2920 District Avenue, Fairfax, Virginia 22031',
+    name: 'Chapel Hill',
+    distance: '8.25 miles away',
+    address: '97 South Elliott Road, Chapel Hill, NC 27514',
   },
   {
     id: 2,
-    name: 'Merrifiled',
-    distance: '18.48 miles away',
-    address: '2920 District Avenue, Fairfax, Virginia 22031',
+    name: 'Charlotte - South End',
+    distance: '146.73 miles away',
+    address: '2040 South Boulevard, Suite 2, Charlotte, NC 28203',
   },
   {
     id: 3,
-    name: 'Merrifiled',
-    distance: '18.48 miles away',
-    address: '2920 District Avenue, Fairfax, Virginia 22031',
+    name: 'Charlotte - Waverly',
+    distance: '155.20 miles away',
+    address: '7314 Waverly Walk Avenue, Suite E-7, Charlotte, NC 28277',
   },
 ]
 
@@ -84,13 +84,13 @@ export default function Locations() {
               <div className="flex items-center gap-2">
                 <button
                   type="button"
-                  className="w-[156px] rounded-md border border-[#3995fc] px-4 py-2 text-sm font-medium tracking-tight text-[#3995fc]"
+                  className="w-[156px] rounded-md border border-[#3995fc] px-4 py-2 text-sm font-medium tracking-tight text-[#3995fc] transition-colors hover:bg-[#eaf4ff]"
                 >
                   Call spa
                 </button>
                 <Link
                   to="/book/select-service"
-                  className="w-[156px] rounded-md bg-[#3995fc] px-4 py-2 text-center text-sm font-medium tracking-tight text-white"
+                  className="w-[156px] rounded-md bg-[#3995fc] px-4 py-2 text-center text-sm font-medium tracking-tight text-white transition-colors hover:bg-[#2c86ee]"
                 >
                   Book now
                 </Link>
@@ -108,7 +108,7 @@ export default function Locations() {
             <button
               key={state}
               type="button"
-              className="flex items-center justify-center rounded px-2 py-3 text-center text-base font-semibold tracking-tight text-[#4165ca]"
+              className="flex items-center justify-center rounded px-2 py-3 text-center text-base font-semibold tracking-tight text-[#4165ca] transition-colors hover:bg-[#c3e0fb]"
               style={{ backgroundColor: '#d8ecff' }}
             >
               {state}
@@ -117,7 +117,7 @@ export default function Locations() {
         </div>
         <button
           type="button"
-          className="mx-auto mt-2 flex items-center justify-center gap-1 rounded px-3 py-1 text-[11px] font-medium tracking-tight text-[#3896f8]"
+          className="mx-auto mt-2 flex items-center justify-center gap-1 rounded px-3 py-1 text-[11px] font-medium tracking-tight text-[#3896f8] transition-opacity hover:opacity-70"
         >
           <img src={chevronDownIcon} alt="" className="size-6" />
           View more

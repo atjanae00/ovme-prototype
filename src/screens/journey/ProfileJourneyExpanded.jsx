@@ -143,6 +143,7 @@ export default function ProfileJourneyExpanded() {
                 <div className="mt-3 rounded-[10px] bg-[#f7f7f7] p-2">
                   <p className="text-[10px] text-[#46595c]">
                     Anniversary allowance and birthday upgrades are valid only during their respective months.
+                    Beauty Bank credits expire after 12 months.
                   </p>
                 </div>
                 <div className="mt-3 flex w-full items-center justify-center gap-1 rounded-[10px] bg-[#fff0e1] p-3 text-[13px] font-medium text-[#46595c]">
@@ -157,6 +158,10 @@ export default function ProfileJourneyExpanded() {
                   <p className="font-serif text-[16px] text-[#46595c]">Botox &amp; SkinVive Progress</p>
                   <img src={infoCircle} alt="" className="h-3 w-3" />
                 </div>
+                <p className="mt-2 text-[12px] text-[#46595c]">
+                  Lorem ipsum dolor sit amet consectetur. Ullamcorper egestas augue massa mauris. Amet consectetur
+                  egestas augue massa mauris.
+                </p>
                 <div className="mt-3 flex items-center justify-center gap-9">
                   <Thumb src={photoBaselineJan25} label="Baseline - Jan 25" />
                   <Thumb src={photoMar8} label="Mar 8" outline />
@@ -174,6 +179,9 @@ export default function ProfileJourneyExpanded() {
                   <p className="font-serif text-[16px] text-[#46595c]">Zepbound Progress</p>
                   <img src={infoCircle} alt="" className="h-3 w-3" />
                 </div>
+                <p className="mt-2 text-[12px] leading-[16px] text-[#46595c]">
+                  Track your transformation week by week. Each photo captures real progress on your wellness path.
+                </p>
                 <div className="mt-3 flex flex-col gap-3">
                   <div className="flex gap-3">
                     <div className="h-[120px] flex-1 overflow-hidden rounded-[6px] shadow-[0px_2px_2px_rgba(0,0,0,0.1)]">
