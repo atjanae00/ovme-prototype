@@ -38,7 +38,7 @@ const NEARBY_LOCATIONS = [
 
 export default function Locations() {
   return (
-    <div className="relative mx-auto min-h-svh w-full max-w-[430px] bg-[#fbfbfb]">
+    <div className="relative w-full min-h-full bg-[#fbfbfb]">
       {/* Hero */}
       <div className="relative h-[481px] w-full overflow-hidden">
         <img

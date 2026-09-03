@@ -81,10 +81,9 @@ function TimelineEntry({ eyebrow, title, body, note, images, cta, ctaTo, last = 
 export default function Tray() {
   return (
     <>
-      <div className="flex min-h-svh justify-center bg-gray-200">
-        <div className="relative flex w-full max-w-[393px] flex-col overflow-hidden rounded-t-[24px] bg-white shadow-[0px_-19px_20px_rgba(0,0,0,0.1)]">
+      <div className="relative flex w-full min-h-full flex-col overflow-hidden bg-white">
           {/* header */}
-          <div className="flex flex-col gap-2 px-6 pt-6">
+          <div className="flex flex-col gap-2 px-6 pb-2 pt-14">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1">
                 <p className="font-serif text-[16px] text-[#46595c]">Botox &amp; SkinVive Progress</p>
@@ -157,7 +156,6 @@ export default function Tray() {
               />
             </div>
           </div>
-        </div>
       </div>
       <ScreenNav />
     </>

@@ -107,8 +107,7 @@ function TimelineEntry({ eyebrow, title, body, note, images, cta, ctaTo, last = 
 export default function ProfileJourneyExpanded() {
   return (
     <>
-      <div className="flex min-h-svh justify-center bg-gray-200">
-        <div className="relative flex w-full max-w-[393px] flex-col overflow-hidden bg-[#f9fafb]">
+      <div className="relative flex w-full min-h-full flex-col overflow-hidden bg-[#f9fafb]">
           {/* dimmed background: profile home screen */}
           <div aria-hidden className="pointer-events-none flex flex-col opacity-90 blur-[1px]">
             <div className="h-[58px] shrink-0" />
@@ -301,11 +300,10 @@ export default function ProfileJourneyExpanded() {
           </div>
 
           {/* user header stays visible above the dim/overlay */}
-          <div className="absolute left-0 right-0 top-0 flex items-center gap-2.5 bg-[#4165ca] px-3 py-2 pt-4">
+          <div className="absolute left-0 right-0 top-0 flex items-center gap-2.5 bg-[#4165ca] px-3 pb-2 pt-12">
             <img src={userAvatar} alt="" className="h-10 w-10 rounded-full object-cover" />
             <p className="text-[20px] text-white">Tia Johnson</p>
           </div>
-        </div>
       </div>
       <ScreenNav />
     </>

@@ -61,8 +61,7 @@ function BottomTabBar() {
 export default function HomeNoAppointment() {
   return (
     <>
-      <div className="flex min-h-svh justify-center bg-gray-200">
-        <div className="relative flex w-full max-w-[393px] flex-col bg-[#fffaf5]">
+      <div className="relative flex w-full min-h-full flex-col bg-[#fffaf5]">
           {/* header */}
           <div className="flex flex-col gap-4 px-3.5 pb-5 pt-14">
             <div className="flex items-center justify-end gap-3">
@@ -252,7 +251,6 @@ export default function HomeNoAppointment() {
           </div>
 
           <BottomTabBar />
-        </div>
       </div>
       <ScreenNav />
     </>

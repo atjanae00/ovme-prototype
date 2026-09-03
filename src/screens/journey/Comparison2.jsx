@@ -33,10 +33,9 @@ function SegmentedSwitch() {
 export default function Comparison2() {
   return (
     <>
-      <div className="flex min-h-svh justify-center bg-gray-200">
-        <div className="relative flex w-full max-w-[393px] flex-col overflow-hidden rounded-t-[24px] bg-white shadow-[0px_-19px_20px_rgba(0,0,0,0.1)]">
+      <div className="relative flex w-full min-h-full flex-col overflow-hidden bg-white">
           {/* header */}
-          <div className="flex flex-col gap-2 px-6 pt-6">
+          <div className="flex flex-col gap-2 px-6 pb-2 pt-14">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1">
                 <Link to="/journey/comparison-1" aria-label="Back">
@@ -104,7 +103,6 @@ export default function Comparison2() {
               </Link>
             </div>
           </div>
-        </div>
       </div>
       <ScreenNav />
     </>

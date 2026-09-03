@@ -71,7 +71,7 @@ export default function PhoneFrame({ children }) {
         }}
       >
         <div
-          className="relative overflow-hidden bg-black"
+          className="phone-screen relative overflow-hidden bg-black"
           style={{
             width: FRAME_WIDTH - 10,
             height: FRAME_HEIGHT - 10,
@@ -84,7 +84,7 @@ export default function PhoneFrame({ children }) {
           <StatusBar />
 
           <div className="absolute inset-0 flex flex-col">
-            <div className="relative min-h-0 flex-1 overflow-y-auto bg-white">{children}</div>
+            <div className="phone-screen-scroll relative min-h-0 flex-1 overflow-y-auto bg-white">{children}</div>
           </div>
 
           {/* Home indicator */}

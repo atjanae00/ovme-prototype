@@ -8,3 +8,27 @@ body {
 #root {
   min-height: 100svh;
 }
+
+/* Native-app feel for everything rendered inside the phone frame */
+.phone-screen,
+.phone-screen * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.phone-screen button,
+.phone-screen a {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.phone-screen button:active,
+.phone-screen a:active {
+  transform: scale(0.97);
+}
+
+.phone-screen-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+}

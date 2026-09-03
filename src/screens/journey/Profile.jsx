@@ -50,10 +50,9 @@ function Row({ icon, label, action }) {
 export default function Profile() {
   return (
     <>
-      <div className="flex min-h-svh justify-center bg-gray-200">
-        <div className="relative flex w-full max-w-[393px] flex-col bg-[#f9fafb]">
+      <div className="relative flex w-full min-h-full flex-col bg-[#f9fafb]">
           {/* user header */}
-          <div className="flex items-center gap-2.5 bg-[#4165ca] px-3 py-2 pt-4">
+          <div className="flex items-center gap-2.5 bg-[#4165ca] px-3 pb-2 pt-12">
             <img src={userAvatar} alt="" className="h-10 w-10 rounded-full object-cover" />
             <p className="text-[20px] text-white">Tia Johnson</p>
           </div>
@@ -249,7 +248,6 @@ export default function Profile() {
               <span className="text-[12px] font-bold text-[#3896f8]">Me</span>
             </Link>
           </div>
-        </div>
       </div>
       <ScreenNav />
     </>

@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import ShowcaseLayout from './components/ShowcaseLayout'
 import ScreenIndex from './pages/ScreenIndex'
 
@@ -7,8 +8,6 @@ import HomeNoAppointment from './screens/home/HomeNoAppointment'
 
 import Locations from './screens/book/Locations'
 import SelectService from './screens/book/SelectService'
-import SelectServiceExpanded1 from './screens/book/SelectServiceExpanded1'
-import SelectServiceExpanded2 from './screens/book/SelectServiceExpanded2'
 
 import ProfileJourneyExpanded from './screens/journey/ProfileJourneyExpanded'
 import Tray from './screens/journey/Tray'
@@ -26,37 +25,61 @@ import ProfileExpanded from './screens/profile/ProfileExpanded'
 import DirectMessage from './screens/profile/DirectMessage'
 import Messaging from './screens/profile/Messaging'
 
+// iOS-style push: new screen slides in from the right, old one slides out to the left.
+const screenVariants = {
+  initial: { x: 40, opacity: 0 },
+  animate: { x: 0, opacity: 1 },
+  exit: { x: -40, opacity: 0 },
+}
+
+function AnimatedRoutes() {
+  const location = useLocation()
+  return (
+    <AnimatePresence mode="popLayout" initial={false}>
+      <motion.div
+        key={location.pathname}
+        variants={screenVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.22, ease: 'easeOut' }}
+        className="h-full"
+      >
+        <Routes location={location}>
+          <Route path="/" element={<ScreenIndex />} />
+
+          <Route path="/home/appointment" element={<HomeAppointment />} />
+          <Route path="/home/no-appointment" element={<HomeNoAppointment />} />
+
+          <Route path="/book/locations" element={<Locations />} />
+          <Route path="/book/select-service" element={<SelectService />} />
+
+          <Route path="/journey/profile-expanded" element={<ProfileJourneyExpanded />} />
+          <Route path="/journey/tray" element={<Tray />} />
+          <Route path="/journey/comparison-1" element={<Comparison1 />} />
+          <Route path="/journey/comparison-2" element={<Comparison2 />} />
+          <Route path="/journey/profile" element={<JourneyProfile />} />
+          <Route path="/journey/capture" element={<Capture />} />
+          <Route path="/journey/capture/front" element={<CaptureFront />} />
+          <Route path="/journey/capture/left" element={<CaptureLeft />} />
+          <Route path="/journey/capture/right" element={<CaptureRight />} />
+          <Route path="/journey/capture/review" element={<CaptureReview />} />
+
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/expanded" element={<ProfileExpanded />} />
+          <Route path="/profile/message" element={<DirectMessage />} />
+          <Route path="/profile/messaging" element={<Messaging />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  )
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <ShowcaseLayout>
-      <Routes>
-        <Route path="/" element={<ScreenIndex />} />
-
-        <Route path="/home/appointment" element={<HomeAppointment />} />
-        <Route path="/home/no-appointment" element={<HomeNoAppointment />} />
-
-        <Route path="/book/locations" element={<Locations />} />
-        <Route path="/book/select-service" element={<SelectService />} />
-        <Route path="/book/select-service/expanded-1" element={<SelectServiceExpanded1 />} />
-        <Route path="/book/select-service/expanded-2" element={<SelectServiceExpanded2 />} />
-
-        <Route path="/journey/profile-expanded" element={<ProfileJourneyExpanded />} />
-        <Route path="/journey/tray" element={<Tray />} />
-        <Route path="/journey/comparison-1" element={<Comparison1 />} />
-        <Route path="/journey/comparison-2" element={<Comparison2 />} />
-        <Route path="/journey/profile" element={<JourneyProfile />} />
-        <Route path="/journey/capture" element={<Capture />} />
-        <Route path="/journey/capture/front" element={<CaptureFront />} />
-        <Route path="/journey/capture/left" element={<CaptureLeft />} />
-        <Route path="/journey/capture/right" element={<CaptureRight />} />
-        <Route path="/journey/capture/review" element={<CaptureReview />} />
-
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/profile/expanded" element={<ProfileExpanded />} />
-        <Route path="/profile/message" element={<DirectMessage />} />
-        <Route path="/profile/messaging" element={<Messaging />} />
-      </Routes>
+        <AnimatedRoutes />
       </ShowcaseLayout>
     </BrowserRouter>
   )

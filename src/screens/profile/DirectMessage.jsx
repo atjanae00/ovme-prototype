@@ -25,9 +25,9 @@ const MESSAGES = [
 
 export default function DirectMessage() {
   return (
-    <div className="flex min-h-svh justify-center bg-gray-100">
-      <div className="flex w-full max-w-[393px] flex-col overflow-hidden rounded-t-2xl bg-[#f9fafb]">
-        <div className="flex h-[100px] shrink-0 items-center gap-4 bg-[#4165ca] px-3">
+    <>
+      <div className="flex w-full min-h-full flex-col overflow-hidden bg-[#f9fafb]">
+        <div className="flex shrink-0 items-center gap-4 bg-[#4165ca] px-3 pb-4 pt-14">
           <Link to="/profile" aria-label="Back to profile" className="shrink-0">
             <img src={iconChevronLeft} alt="" className="size-6" />
           </Link>
@@ -71,6 +71,6 @@ export default function DirectMessage() {
         </div>
       </div>
       <ScreenNav />
-    </div>
+    </>
   )
 }

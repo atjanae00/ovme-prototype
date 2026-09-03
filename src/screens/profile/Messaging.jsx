@@ -23,8 +23,8 @@ const THREADS = [
 
 export default function Messaging() {
   return (
-    <div className="flex min-h-svh justify-center bg-gray-100">
-      <div className="flex w-full max-w-[393px] flex-col overflow-hidden rounded-2xl bg-white">
+    <>
+      <div className="flex w-full min-h-full flex-col overflow-hidden bg-white">
         <div className="flex items-center justify-between border-b border-[#e5e7eb] bg-[#f9fafb] px-6 pb-2 pt-14">
           <p className="text-xl font-medium text-black">Messages</p>
           <Link to="/profile" aria-label="Close messages">
@@ -67,6 +67,6 @@ export default function Messaging() {
         </div>
       </div>
       <ScreenNav />
-    </div>
+    </>
   )
 }

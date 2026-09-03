@@ -104,8 +104,8 @@ function BottomTabBar() {
 
 export default function ProfileExpanded() {
   return (
-    <div className="flex min-h-svh justify-center bg-gray-100">
-      <div className="flex w-full max-w-[393px] flex-col bg-[#f9fafb]">
+    <>
+      <div className="flex w-full min-h-full flex-col bg-[#f9fafb]">
         <div className="flex items-center gap-3 rounded-b-[10px] bg-[#4165ca] px-3 pb-2 pt-12">
           <img src={avatarTia} alt="Tia Johnson" className="size-10 rounded-full object-cover" />
           <p className="text-xl text-white">Tia Johnson</p>
@@ -338,6 +338,6 @@ export default function ProfileExpanded() {
         <BottomTabBar />
       </div>
       <ScreenNav />
-    </div>
+    </>
   )
 }

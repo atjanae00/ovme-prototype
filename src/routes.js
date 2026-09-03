@@ -9,9 +9,7 @@ export const ROUTES = [
 
   // -- book appointment --
   { path: '/book/locations', flow: 'book', label: 'Locations', nodeId: '66:38' },
-  { path: '/book/select-service', flow: 'book', label: 'Select service — closed', nodeId: '88:1193' },
-  { path: '/book/select-service/expanded-1', flow: 'book', label: 'Select service — expanded 1', nodeId: '88:1629' },
-  { path: '/book/select-service/expanded-2', flow: 'book', label: 'Select service — expanded 2', nodeId: '107:1966' },
+  { path: '/book/select-service', flow: 'book', label: 'Select service', nodeId: '88:1193' },
 
   // -- beauty journey --
   { path: '/journey/profile-expanded', flow: 'journey', label: 'Profile — journey expanded', nodeId: '203:1455' },
@@ -32,4 +30,32 @@ export const ROUTES = [
   { path: '/profile/messaging', flow: 'profile', label: 'Messaging', nodeId: '283:6793' },
 ]
 
-export const FLOWS = ['home', 'book', 'journey', 'profile']
+// Order matches the requested left-panel tab order: booking, home, profile, beauty journey.
+export const FLOWS = ['book', 'home', 'profile', 'journey']
+
+export const FLOW_LABELS = {
+  book: 'Booking',
+  home: 'Home',
+  profile: 'Profile',
+  journey: 'Beauty journey',
+}
+
+// Curated starting points shown per flow in the showcase nav — not every screen,
+// just where to jump in. The rest of each flow is reached by clicking through the
+// actual UI (e.g. the guided capture wizard chains its own steps via in-app CTAs).
+export const ENTRY_POINTS = {
+  book: [
+    { step: 'ENTRY', label: 'Locations near you', path: '/book/locations' },
+    { step: 'BOOKING', label: 'Select a service', path: '/book/select-service' },
+  ],
+  home: [
+    { step: 'ENTRY', label: 'Home — appointment', path: '/home/appointment' },
+    { step: 'ALT', label: 'Home — no appointment', path: '/home/no-appointment' },
+  ],
+  profile: [{ step: 'ENTRY', label: 'Profile', path: '/profile' }],
+  journey: [
+    { step: 'EXPANDED', label: 'Expanded', path: '/journey/profile-expanded' },
+    { step: 'COLLAPSED', label: 'Collapsed', path: '/journey/profile' },
+    { step: 'GUIDED CAPTURE', label: 'Guided capture', path: '/journey/capture' },
+  ],
+}
