@@ -695,6 +695,7 @@
     flex-direction:column;
     gap:14px;
   }
+  .profile-card.card-tappable{cursor:pointer;}
   .profile-label{
     color:var(--blue);
     font-size:11px;
@@ -1482,9 +1483,9 @@ const beautyBankRows = [
   { desc:'Welcome bonus', date:'Mar 20', tag:'PROMO', tagBg:'#ECF6E0', amt:'+$50', pos:true }
 ];
 
-function beautyJourneyCard(showFullJourneyLink){
+function beautyJourneyCard(showFullJourneyLink, cardOnClick){
   return `
-        <div class="profile-card">
+        <div class="profile-card${cardOnClick ? ' card-tappable' : ''}"${cardOnClick ? ` onclick="${cardOnClick}"` : ''}>
           <div class="profile-label">Beauty journey</div>
           <div class="journey-header">
             <div class="journey-title">Botox &amp; SkinVive Progress ${ICON.info}</div>
@@ -1629,7 +1630,7 @@ function renderHome(mode){
     </div>
     <div class="screen-scroll home-scroll">
       <div class="home-cards">
-        <div class="profile-card">
+        <div class="profile-card card-tappable" onclick="openHomeBeautyBank()">
           <div class="profile-label">Beauty bank</div>
           <div class="bb-stats">
             <div class="stat"><div class="k">Membership</div><div class="v">VIP - Transform</div></div>
@@ -1661,7 +1662,7 @@ function renderHome(mode){
           `}
         </div>
 
-        ${beautyJourneyCard(false)}
+        ${beautyJourneyCard(false, 'openHomeBeautyJourney()')}
 
         ${wellnessJourneyCard('homeWellnessNudge')}
 
@@ -1692,6 +1693,21 @@ function renderHome(mode){
 
 function bookWithChelsea(){
   navigate('locations', true);
+}
+
+function openHomeBeautyJourney(){
+  navigate('profile');
+  setTimeout(()=>{ openBeautyTray(); }, 400);
+}
+
+function openHomeBeautyBank(){
+  navigate('profile');
+  setTimeout(()=>{
+    const card = document.getElementById('beautyBankCard');
+    if(!card) return;
+    card.scrollIntoView({block:'start'});
+    if(!card.classList.contains('bb-open')) toggleBeautyBank();
+  }, 400);
 }
 
 function toggleBeautyBank(){
