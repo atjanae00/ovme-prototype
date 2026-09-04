@@ -175,10 +175,11 @@
   .screen.active{display:block;}
   .screen.sliding{
     display:block;
-    will-change:transform;
-    transition:transform .4s cubic-bezier(.36,.66,.04,1);
+    will-change:transform,filter;
+    transition:transform .38s cubic-bezier(.32,.72,0,1),filter .38s cubic-bezier(.32,.72,0,1);
     backface-visibility:hidden;
   }
+
   .screen.on-top{box-shadow:-16px 0 32px rgba(0,0,0,.16);z-index:2;}
   .screen.underneath{z-index:1;}
   .screen-scroll{
@@ -1862,20 +1863,20 @@ function renderBeautyTray(){
           <div class="tray-link" onclick="renderComparisonTray()">Compare to your baseline</div>
         </div>
         <div class="tray-piece">
-          <div class="tray-eyebrow">Apr 19 &middot; village plaza studio</div>
+          <div class="tray-eyebrow">Mar 7 &middot; village plaza studio</div>
           <div class="tray-sub">Botox Refresh with BBL Photofacial</div>
           <div class="tray-body">Chelsea Leos, NP &middot; 24 units</div>
           <div class="tray-note"><span class="lbl2">Note from Chelsea</span><p>Stayed light across the forehead so your brow keeps its movement. Let&rsquo;s hold this placement next time.</p></div>
           <div class="tray-link" onclick="showToast('Not available in this prototype')">View appointment details</div>
         </div>
         <div class="tray-piece">
-          <div class="tray-eyebrow">Apr 19 &middot; village plaza studio</div>
-          <div class="tray-sub">Botox Refresh with BBL Photofacial</div>
-          <div class="tray-body">Chelsea Leos, NP &middot; 24 units</div>
+          <div class="tray-eyebrow">Feb 12 &middot; village plaza studio</div>
+          <div class="tray-sub">Hydrafacial</div>
+          <div class="tray-body">Chelsea Leos, NP</div>
           <div class="tray-link" onclick="showToast('Not available in this prototype')">View appointment details</div>
         </div>
         <div class="tray-piece">
-          <div class="tray-eyebrow">Apr 19 &middot; village plaza studio</div>
+          <div class="tray-eyebrow">Jan 25 &middot; village plaza studio</div>
           <div class="tray-sub">Initial Botox appointment</div>
           <div class="tray-body">In-studio with Chelsea Leos &middot; 24 units</div>
           <div class="tray-images">
@@ -2297,19 +2298,24 @@ function transitionTo(id, direction){
 
   // the screen animating on top of the stack gets the depth shadow;
   // the one being revealed/covered underneath gets a slight dim + parallax shift
+  let onTop, underneath;
   if(direction === 'forward'){
     to.classList.add('on-top');
     from.classList.add('underneath');
+    onTop = to; underneath = from;
     to.style.transform = 'translateX(100%)';
     from.style.transform = 'translateX(0)';
   } else {
     from.classList.add('on-top');
     to.classList.add('underneath');
+    onTop = from; underneath = to;
     from.style.transform = 'translateX(0)';
     to.style.transform = 'translateX(-28%)';
   }
+  underneath.style.filter = 'brightness(1)';
+  onTop.style.filter = 'brightness(1)';
 
-  // force reflow so the starting transform is applied before animating
+  // force reflow so the starting transform/filter are applied before animating
   to.offsetHeight;
 
   requestAnimationFrame(()=>{
@@ -2320,15 +2326,18 @@ function transitionTo(id, direction){
       from.style.transform = 'translateX(100%)';
       to.style.transform = 'translateX(0)';
     }
+    underneath.style.filter = 'brightness(.92)';
   });
 
   setTimeout(()=>{
     from.classList.remove('active','sliding','on-top','underneath');
     from.style.transform = '';
+    from.style.filter = '';
     to.classList.remove('sliding','on-top','underneath');
     to.style.transform = '';
+    to.style.filter = '';
     navigating = false;
-  }, 400);
+  }, 380);
 
   state.current = id;
   if(id === 'direct-message' || id === 'messaging' || id.indexOf('guided-capture') === 0){
