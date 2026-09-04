@@ -208,6 +208,8 @@
     display:flex;
     flex-direction:column;
     align-items:center;
+    width:357px;
+    height:775px;
   }
   iframe{
     width:421px;
@@ -215,6 +217,8 @@
     border:none;
     background:transparent;
     display:block;
+    transform:scale(0.85);
+    transform-origin:top left;
   }
 
   @media (max-width:900px){
@@ -241,31 +245,31 @@
 
     <div class="section-label">Flow</div>
     <div class="flow-tabs">
-      <div class="flow-tab active" data-flow="book" onclick="setFlow(this,'book')">Book appointment</div>
-      <div class="flow-tab" data-flow="beauty" onclick="setFlow(this,'beauty')">Beauty journey</div>
+      <div class="flow-tab active" data-flow="home" onclick="setFlow(this,'home')">Home</div>
+      <div class="flow-tab" data-flow="book" onclick="setFlow(this,'book')">Book appointment</div>
       <div class="flow-tab" data-flow="profile" onclick="setFlow(this,'profile')">Profile</div>
-      <div class="flow-tab" data-flow="home" onclick="setFlow(this,'home')">Home</div>
+      <div class="flow-tab" data-flow="beauty" onclick="setFlow(this,'beauty')">Beauty journey</div>
     </div>
 
     <div class="section-label scenario-label" id="scenarioLabel">Start on</div>
     <div class="scenario-list" id="scenarioList">
-      <div class="scenario-item active" data-start="locations" onclick="setStart(this,'locations')">
+      <div class="scenario-item active" data-start="home-appointment" onclick="setStart(this,'home-appointment')">
         <div class="scenario-num">1</div>
         <div class="meta">
-          <span class="desc">Locations near you</span>
+          <span class="desc">Appointment booked</span>
         </div>
       </div>
-      <div class="scenario-item" data-start="service" onclick="setStart(this,'service')">
+      <div class="scenario-item" data-start="home-nudge" onclick="setStart(this,'home-nudge')">
         <div class="scenario-num">2</div>
         <div class="meta">
-          <span class="desc">Select a service</span>
+          <span class="desc">Nudge to book</span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="stage">
-    <iframe id="proto" src="ovme_prototype.html" title="OVME book appointment prototype"></iframe>
+    <iframe id="proto" src="ovme_prototype.html?start=home-appointment" title="OVME book appointment prototype"></iframe>
   </div>
 </div>
 
